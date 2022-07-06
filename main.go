@@ -13,7 +13,6 @@ import (
     _ "github.com/lib/pq"
 )
 
-// db config
 const (
     DB_USER     = "postgres"
     DB_PASSWORD = "postgres"
@@ -22,10 +21,13 @@ const (
 
 // DB set up
 func setupDB() *sql.DB {
-    dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", DB_USER, DB_PASSWORD, DB_NAME)
-    db, err := sql.Open("postgres", dbinfo)
 
-    checkErr(err)
+
+    dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", DB_USER, DB_PASSWORD, DB_NAME)
+    if _, err := sql.Open("postgres", dbinfo); err != nil {
+        
+        checkErr(err)
+    } 
 
     return DB
 }
@@ -79,6 +81,14 @@ func checkErr(err error) {
         panic(err)
     }
 }
+
+// Get all movies
+
+// response and request handlers
+func GetMovies(w http.ResponseWriter, r *http.Request) {
+    db := setupDB()
+
+    printMessage("Getting movies...")
 
     // Get all movies from movies table that don't have movieID = "1"
     rows, err := db.Query("SELECT * FROM movies")
