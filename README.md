@@ -1,1 +1,3 @@
 So far, I've created a test table called movies. I struggled with getting the local server and db set up with the command line. I eventually got things up and running in pgAdmin so my db is local to my machine at the moment.
+
+The starting tutorial, which is this code line by line, is from https://www.section.io/engineering-education/build-a-rest-api-application-using-golang-and-postgresql-database/. I am using this code to learn and will edit this code later for a personal project. I may also use it to create something new.
