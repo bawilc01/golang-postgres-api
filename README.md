@@ -1,1 +1,1 @@
-The README file I need to update once I build my golang api.
+So far, I've created a test table called movies. I struggled with getting the local server and db set up with the command line. I eventually got things up and running in pgAdmin so my db is local to my machine at the moment.
