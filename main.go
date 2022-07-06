@@ -1,7 +1,7 @@
 // Go package
 package main
 
-/// Go fmt import
+/// Go imports
 import (
     "database/sql"
     "encoding/json"
@@ -26,10 +26,11 @@ func setupDB() *sql.DB {
     dbinfo := fmt.Sprintf("user=%s password=%s dbname=%s sslmode=disable", DB_USER, DB_PASSWORD, DB_NAME)
     if _, err := sql.Open("postgres", dbinfo); err != nil {
         
-        checkErr(err)
+        panic(err)
     } 
 
     return DB
+
 }
 
 type Movie struct {
